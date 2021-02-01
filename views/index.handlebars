@@ -1,1 +1,29 @@
 {{!-- Create the reder file here --}}
+<h1>Burgers</h1>
+
+<h2>Burgers that have yet to be devoured:</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burger devoured=false}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Burgers that have been devoured:</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#if devoured}}
+            {{> burger devoured=true}}
+        {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Add a Burger!</h2>
+<form class="create-form">
+    <div class="form-group">
+        <label for=""
+    </div>
+</form>
