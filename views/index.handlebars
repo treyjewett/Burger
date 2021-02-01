@@ -6,7 +6,7 @@
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
-            {{> burger devoured=false}}
+            {{> burgers/devour devoured=false}}
         {{/unless}}
     {{/each}}
 </ul>
@@ -16,7 +16,7 @@
 <ul>
     {{#each burgers}}
         {{#if devoured}}
-            {{> burger devoured=true}}
+            {{> burgers/devour devoured=true}}
         {{/if}}
     {{/each}}
 </ul>
@@ -26,6 +26,5 @@
     <div class="form-group">
         <label for="buger-name">Burger Name:</label>
         <input type="text" id="burger-name" name="name">
-        <button id="devour">Devour It!</button>
     </div>
 </form>
