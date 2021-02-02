@@ -6,7 +6,7 @@ var burger = require('../models/burger.js');
 // Create the routes for the app and set up logic within the routes required.
 // Get route to retrieve all burgers within the table.
 router.get('/', function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
         var hbsObject = { burgers: data };
         console.log(hbsObject);
         res.render('index', hbsObject);
@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 
 // Post route to add a new buger to the table.
 router.post('api/burgers', function(req, res) {
-    burger.insert(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function(result) {
+    burger.insertOne(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], function(result) {
         res.json({ id: result.insertId });
     });
 });
@@ -23,6 +23,7 @@ router.post('api/burgers', function(req, res) {
 // Put route to update whether a burger has been devoured or not.
 router.put('api/burgers/:id', function(req, res) {
     var eaten = 'id = ' + req.params.id;
+    console.log('eaten', eaten);
     burger.update({ devoured: req.body.devoured }, eaten, function(result) {
         if (result.changedRows === 0) {
             return res.status(404).end();

@@ -3,7 +3,7 @@ $(function() {
         event.preventDefault();
         var burger = { burger_name: $('#burger-name').val().trim() };
         
-        $.ajax('/api/burger', {
+        $.ajax('/api/burgers', {
             method: 'POST',
             data: burger
         }).then(function() {
@@ -13,14 +13,15 @@ $(function() {
 
     $('.devour-it').on('click', function(event) {
         var id = $(this).data('id');
-        var burgers = $(this).data('burgers');
-        var burgers = { devoured: 1 };
+        var eat = $(this).data('eaten');
+        var eaten = { devoured: eat };
+        console.log('ID: ', id);
+        console.log('Eaten Object: ', eaten);
 
     $.ajax('/api/burgers' + id, {
         type: 'PUT',
-        data: burgers
+        data: eaten
     }).then(function() {
-        console.log(id);
         location.reload();
         });
     });
