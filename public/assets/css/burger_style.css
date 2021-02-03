@@ -1,1 +1,63 @@
 /* create css styling here */
+body {
+    background-color: rgb(190, 157, 113);
+}
+header {
+    height: 10%;
+    padding: 5%;
+    background-image: url(../img/header.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
+header h1 {
+    font-size: 75px;
+    transform: rotate(7deg);
+    color: rgb(10, 9, 92);
+}
+
+h2 {
+    font-size: 40px;
+}
+
+#content {
+    margin-top: 1%;
+}
+
+#welcome {
+    float: left;
+    padding-left: 17%;
+}
+
+#menu {
+    float: right;
+    padding-right: 22%;
+}
+
+#newBurger-header {
+    margin-left: 45px;
+}
+
+.form-group {
+    font-size: 25px;
+}
+
+#newBurger {
+    font-size: 20px;
+}
+
+.button {
+    font-size: 22px;
+    margin-left: 30px;
+    margin-top: 2px;
+    background-color: grey;
+}
+
+#list {
+    font-size: 25px;
+}
+
+.devour-it {
+    font-size: 20px;
+}

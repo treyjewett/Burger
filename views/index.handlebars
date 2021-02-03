@@ -1,32 +1,42 @@
 {{!-- Create the render file here --}}
-<h1>Burgers</h1>
+<header>
+    <h1>Burger Shack</h1>
+</header>
 
-<h2>Add a Burger!</h2>
-<form class="create-form">
-    <div class="form-group">
-        <label for="newBurger">Burger Name:</label>
-        <br>
-        <input type="text" id="newBurger" name="burger_name" class="form-control">
+<div id="content">
+    <div id="welcome">
+        <h2>Add a Burger!</h2>
+        <form class="create-form">
+            <div class="form-group">
+                <label id="newBurger-header" for="newBurger">Burger Name:</label>
+                <br>
+                <input type="text" id="newBurger" name="burger_name" class="form-control">
+            </div>
+            <button type="submit" class="button">Add New Burger</button>
+        </form>
     </div>
-    <button type="submit" class="button">Add New Burger</button>
-</form>
 
-<h2>Burgers that have yet to be devoured:</h2>
+    <div id="menu">
+        <div id="notEaten">
+            <h2>Burgers ready to be devoured:</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/devour devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
 
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> burgers/devour devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Burgers that have been devoured:</h2>
-
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> burgers/devour devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
+        <div id="haveEaten">
+            <h2 id="haveEaten">Devoured Burgers:</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/devour devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
