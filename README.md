@@ -35,6 +35,8 @@ This Application is deployed on Heroku.
 
 To visit the Application, please follow the link below:
 
+<a href="https://russells-burger-shack.herokuapp.com/" targer="_blank">View BurgerShack app here!</a>
+
 ## License
 
 This project is using MIT.
